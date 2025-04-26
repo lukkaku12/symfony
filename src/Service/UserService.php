@@ -14,6 +14,11 @@ class UserService
         $this->em = $em;
     }
 
+    public function listUsers(): array 
+    {
+        return $this->em->getRepository(User::class)->findAll();
+    }
+
     public function createUser(string $name, string $lastname): User
     {
         $user = new User();
