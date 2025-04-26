@@ -31,15 +31,15 @@ class UserService
         return $this->em->getRepository(User::class)->find($id);
     }
 
-    public function updateUser(int $id, string $name, string $email): ?User
+    public function updateUser(int $id, string $name, string $lastname): ?User
     {
         $user = $this->em->getRepository(User::class)->find($id);
         if (!$user) {
             return null;
         }
 
-        $user->setName($name);
-        $user->setEmail($email);
+        $user->setNames($name);
+        $user->setLastnames($lastname);
 
         $this->em->flush();
         return $user;
